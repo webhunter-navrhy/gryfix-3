@@ -1,0 +1,79 @@
+{
+ "claim": "For stronger teams. For safer future.",
+ "h1": [
+  "Zkušenosti hrou.",
+  "Bezpečnost zážitkem."
+ ],
+ "uvod": "Zážitkové teambuildingy, které váš team prověří v situacích, na které se v kanceláři nedá připravit. Pod vedením profíků z oboru.",
+ "misto_fakta": [
+  "Kutná Hora",
+  "Soukromí, wellness, čistota",
+  "Až 20 lidí",
+  "Strava v ceně pobytu"
+ ],
+ "vize_titulek": "Jen krize a nečekané situace prověří schopnosti vašeho teamu.",
+ "vize": [
+  "Naše zážitkové teambuildingy vás naučí, jak spolu komunikovat pod tlakem, ve stresu, jak řešit nové situace a problémy, jak využít silných stránek každého člena teamu a jak společně vykompenzovat slabé stránky jednotlivce i skupiny.",
+  "Hravou formou si osvojíte základy situační pozornosti, zásady bezpečnosti, deeskalace krizových situací a také se naučíte základy první pomoci a bushcraftu.",
+  "Celý pobyt zakončíme psychodiagnostikou jednotlivců i teamu a celkovým vyhodnocením a doporučením do budoucna."
+ ],
+ "schopnosti": [
+  "kooperace a komunikace",
+  "řešení nových problémů",
+  "zvládání stresu",
+  "práce pod tlakem",
+  "situační pozornost",
+  "kognitivní dovednosti",
+  "psychická odolnost",
+  "deeskalace situací"
+ ],
+ "okruhy": [
+  "kooperační zážitkové hry",
+  "základy bezpečnosti a situační pozornosti",
+  "základy sebeobrany a bushcraftu",
+  "deeskalační a vyjednávací techniky",
+  "psychodiagnostika jednotlivců a teamu",
+  "adrenalinové zážitky",
+  "kreativní umělecké studio"
+ ],
+ "odbornost_uvod": "Spolupracujeme se špičkami v oboru s desítkami let praxe z těchto oblastí edukace:",
+ "odbornost": [
+  "Bezpečnost a řešení krizových situací",
+  "Základy přežití, psychické a fyzické odolnosti",
+  "Komunikace, práce pod tlakem, kooperace",
+  "Psychodiagnostika, osobnostní rozvoj"
+ ],
+ "test": {
+  "foto": "prvni-pomoc.jpg",
+  "sekundy": 8,
+  "otazky": [
+   {
+    "q": "Kolik lidí kromě instruktora sedí v kruhu?",
+    "a": [
+     "4",
+     "5",
+     "6"
+    ],
+    "ok": 1
+   },
+   {
+    "q": "Jakou barvu má lékárnička?",
+    "a": [
+     "červenou",
+     "zelenou",
+     "oranžovou"
+    ],
+    "ok": 0
+   },
+   {
+    "q": "Co hoří v pozadí?",
+    "a": [
+     "svíčky",
+     "krb",
+     "ohniště na zahradě"
+    ],
+    "ok": 1
+   }
+  ]
+ }
+}

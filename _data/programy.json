@@ -1,0 +1,331 @@
+[
+ {
+  "id": "alpha",
+  "nazev": "Alpha",
+  "delka": "2 noci",
+  "kapacita": "do 12 lidí",
+  "cena": "od 190 000 Kč",
+  "dph": "bez DPH",
+  "vcene": "Cena zahrnuje ubytování a stravu, instruktory na místě a celkové odborné programové vedení pobytu. Možnost customizace programu.",
+  "perex": "Nejširší program: od bushcraftu přes simulace krizových situací až po večerní umělecké studio.",
+  "dny": [
+   {
+    "n": "Den 1",
+    "pozn": "příjezd ve 12 h",
+    "b": [
+     {
+      "od": 12,
+      "do": 13,
+      "n": "oběd",
+      "t": "j"
+     },
+     {
+      "od": 13,
+      "do": 15,
+      "n": "kooperační hra",
+      "t": "p"
+     },
+     {
+      "od": 15,
+      "do": 15.5,
+      "n": "pauza a svačina",
+      "t": "j"
+     },
+     {
+      "od": 15.5,
+      "do": 16.5,
+      "n": "testy pozornosti a paměti",
+      "t": "p"
+     },
+     {
+      "od": 16.5,
+      "do": 18,
+      "n": "základy bezpečnosti, simulace krizových situací",
+      "t": "p"
+     },
+     {
+      "od": 18,
+      "do": 19,
+      "n": "večeře",
+      "t": "j"
+     }
+    ],
+    "foto": {
+     "f": "lide-alpha-1.png",
+     "alt": "Team s batohy se v terénu radí nad mapou"
+    }
+   },
+   {
+    "n": "Den 2",
+    "pozn": "program 9:30–21 h",
+    "b": [
+     {
+      "od": 8,
+      "do": 9.5,
+      "n": "snídaně",
+      "t": "j"
+     },
+     {
+      "od": 9.5,
+      "do": 11.5,
+      "n": "základy bushcraftu a přežití",
+      "t": "p"
+     },
+     {
+      "od": 11.5,
+      "do": 13,
+      "n": "oběd",
+      "t": "j"
+     },
+     {
+      "od": 13,
+      "do": 15,
+      "n": "deeskalace krizových situací a vyjednávání",
+      "t": "p"
+     },
+     {
+      "od": 15,
+      "do": 15.5,
+      "n": "pauza a svačina",
+      "t": "j"
+     },
+     {
+      "od": 15.5,
+      "do": 17.5,
+      "n": "kooperační hra",
+      "t": "p"
+     },
+     {
+      "od": 17.5,
+      "do": 19,
+      "n": "večeře",
+      "t": "j"
+     },
+     {
+      "od": 19,
+      "do": 21,
+      "n": "kreativní umělecké studio",
+      "t": "p"
+     }
+    ],
+    "foto": {
+     "f": "lide-alpha-2.png",
+     "alt": "Team u stolu skládá dřevěné dílky kooperační hry"
+    }
+   },
+   {
+    "n": "Den 3",
+    "pozn": "odjezd ve 12 h",
+    "b": [
+     {
+      "od": 8,
+      "do": 9.5,
+      "n": "snídaně",
+      "t": "j"
+     },
+     {
+      "od": 9.5,
+      "do": 11,
+      "n": "psychodiagnostika a vyhodnocení",
+      "t": "p"
+     }
+    ],
+    "foto": {
+     "f": "lide-alpha-3.png",
+     "alt": "Instruktor vede rozbor s teamem, jeden z účastníků drží flipchart"
+    }
+   }
+  ]
+ },
+ {
+  "id": "beta",
+  "nazev": "Beta",
+  "delka": "2 noci",
+  "kapacita": "do 12 lidí",
+  "cena": "od 100 000 Kč",
+  "dph": "bez DPH",
+  "vcene": "Cena zahrnuje ubytování a stravu, instruktory na místě a celkové odborné programové vedení pobytu. Možnost customizace programu.",
+  "perex": "Situační pozornost, první pomoc a sebepoznání. Kompaktnější varianta se stejnou péčí.",
+  "dny": [
+   {
+    "n": "Den 1",
+    "pozn": "příjezd ve 12 h",
+    "b": [
+     {
+      "od": 12,
+      "do": 13,
+      "n": "oběd",
+      "t": "j"
+     },
+     {
+      "od": 13,
+      "do": 16,
+      "n": "základy situační pozornosti a bezpečnosti",
+      "t": "p"
+     },
+     {
+      "od": 16,
+      "do": 16.5,
+      "n": "pauza a svačina",
+      "t": "j"
+     },
+     {
+      "od": 16.5,
+      "do": 18,
+      "n": "deeskalační techniky, základy první pomoci",
+      "t": "p"
+     },
+     {
+      "od": 18,
+      "do": 19,
+      "n": "večeře",
+      "t": "j"
+     },
+     {
+      "od": 19,
+      "do": 20.5,
+      "n": "osobnostní testy a sebepoznání",
+      "t": "p"
+     }
+    ],
+    "foto": {
+     "f": "lide-beta-1.png",
+     "alt": "Instruktor ukazuje na figuríně resuscitaci, team přihlíží"
+    }
+   },
+   {
+    "n": "Den 2",
+    "pozn": "program 9:30–19 h",
+    "b": [
+     {
+      "od": 8,
+      "do": 9.5,
+      "n": "snídaně",
+      "t": "j"
+     },
+     {
+      "od": 9.5,
+      "do": 11.5,
+      "n": "kooperační hra",
+      "t": "p"
+     },
+     {
+      "od": 11.5,
+      "do": 13,
+      "n": "oběd",
+      "t": "j"
+     },
+     {
+      "od": 13,
+      "do": 15,
+      "n": "teamové řešení problémů a krizových situací",
+      "t": "p"
+     },
+     {
+      "od": 15,
+      "do": 15.5,
+      "n": "pauza a svačina",
+      "t": "j"
+     },
+     {
+      "od": 15.5,
+      "do": 17.5,
+      "n": "kreativní umělecké studio",
+      "t": "p"
+     },
+     {
+      "od": 17.5,
+      "do": 19,
+      "n": "večeře",
+      "t": "j"
+     }
+    ],
+    "foto": {
+     "f": "lide-beta-2.png",
+     "alt": "Dvě skupinky u herních pultů s bzučáky"
+    }
+   },
+   {
+    "n": "Den 3",
+    "pozn": "odjezd ve 12 h",
+    "b": [
+     {
+      "od": 8,
+      "do": 9.5,
+      "n": "snídaně",
+      "t": "j"
+     },
+     {
+      "od": 9.5,
+      "do": 11,
+      "n": "psychodiagnostika a vyhodnocení",
+      "t": "p"
+     }
+    ],
+    "foto": {
+     "f": "lide-beta-3.png",
+     "alt": "Team u dlouhého stolu při společné poradě"
+    }
+   }
+  ]
+ },
+ {
+  "id": "charlie",
+  "nazev": "Charlie",
+  "delka": "on site, 9–16 h",
+  "kapacita": "do 20 lidí",
+  "cena": "69 000 Kč",
+  "dph": "bez DPH",
+  "vcene": "Přijedeme za vámi. Možnost customizace programu.",
+  "perex": "Celodenní zážitkové školení přímo u vás ve firmě. Jednorázově, nebo jako roční spolupráce.",
+  "dny": [
+   {
+    "n": "Program on site",
+    "pozn": "začátek v 9 h",
+    "b": [
+     {
+      "od": 9,
+      "do": 12,
+      "n": "základy situační pozornosti a bezpečnosti ve městě i v kanceláři",
+      "t": "p"
+     },
+     {
+      "od": 12,
+      "do": 13,
+      "n": "oběd",
+      "t": "j"
+     },
+     {
+      "od": 13,
+      "do": 15,
+      "n": "základy první pomoci, krizové scénáře",
+      "t": "p"
+     },
+     {
+      "od": 15,
+      "do": 16,
+      "n": "základy deeskalace a vyjednávání",
+      "t": "p"
+     }
+    ],
+    "foto": {
+     "f": "lide-charlie-1.png",
+     "alt": "Recepce firmy, kde instruktor začíná školení on site"
+    }
+   }
+  ],
+  "varianty": [
+   "Jednorázové celodenní zážitkové školení"
+  ],
+  "rocni": {
+   "nazev": "Roční spolupráce",
+   "text": "Pravidelné měsíční školení, které postupně detailně pokryje 12 oblastí bezpečnosti, zajistí připomínání klíčových principů a navazuje na už získané znalosti a dovednosti.",
+   "text2": "12 celodenních zážitkových školení on site, nebo v připraveném prostoru. 12 oblastí bezpečnosti.",
+   "cena": "od 490 000 Kč bez DPH",
+   "foto": {
+    "f": "lide-charlie-rocni.png",
+    "alt": "Instruktor s nárazníkovým lapačem v obranném postoji"
+   }
+  }
+ }
+]

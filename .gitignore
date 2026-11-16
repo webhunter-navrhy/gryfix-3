@@ -1,0 +1,11 @@
+dist/
+.cache/
+qa/
+__pycache__/
+_research/
+_snimky/
+podklady/
+*.bak-*
+kolaz_*.png
+qa.json
+shots/

@@ -1,0 +1,158 @@
+{
+ "slug": "gryfix",
+ "zdroj_url": null,
+ "firma": "Gryfix Experience",
+ "obor": [
+  "teambuilding",
+  "zážitkové školení bezpečnosti",
+  "firemní pobyty"
+ ],
+ "ico": "",
+ "ares": null,
+ "kontakty": {
+  "osoba": "Ing. Valérie Čížková",
+  "telefon": "773 515 703",
+  "email": "valerie.cizkova@bitemarks.cz",
+  "web": "www.gryfix.cz",
+  "zdroj": "podklad: Gryfix Experience.pdf, str. 14"
+ },
+ "logo": {
+  "soubory": [
+   "static/img/gryfix-logo.png (z PDF str. 15, alfa)",
+   "static/img/gryfix-symbol.svg",
+   "static/img/gryfix-obrys.svg"
+  ],
+  "poznamka": "krémový nápis + tyrkysový gryf + zlaté X, pro tmavé pozadí"
+ },
+ "barvy": {
+  "tyrkys": "#06ACBC",
+  "svestka": "#33182F",
+  "svestka_tmava": "#371222",
+  "krem": "#F9F5ED",
+  "zlata": "#B89552",
+  "zlata_x": "#CE9E3A",
+  "zdroj": "SVG symbolu, PDF slidy, logo"
+ },
+ "fotky": [
+  {
+   "soubor": "les-mapa.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "les-soumrak.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "briefing-stodola.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "kooperacni-hra-zahrada.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "hra-telefony.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "prvni-pomoc.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "stodola-exterier.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "bazen-den.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "krb-schodiste.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "sauna.jpg",
+   "rozliseni": "1600×900",
+   "zdroj": "klientka, WhatsApp 16. 11. 2026"
+  },
+  {
+   "soubor": "bazen-vecer.jpg",
+   "rozliseni": "1254×1254",
+   "zdroj": "klientka"
+  }
+ ],
+ "fakta": [
+  {
+   "fakt": "Místo: Kutná Hora; soukromí, wellness, čistota; kapacita až 20 lidí; strava v ceně pobytu",
+   "zdroj": "podklad: GRIFIX EXPERIENCE.docx"
+  },
+  {
+   "fakt": "Vize: Jen krize a nečekané situace prověří schopnosti vašeho teamu…",
+   "zdroj": "podklad: Gryfix Experience.pdf str. 2, podklad: GRIFIX EXPERIENCE.docx"
+  },
+  {
+   "fakt": "8 schopností (kooperace a komunikace … deeskalace situací)",
+   "zdroj": "podklad: Gryfix Experience.pdf str. 3"
+  },
+  {
+   "fakt": "7 tematických okruhů (kooperační zážitkové hry … kreativní umělecké studio)",
+   "zdroj": "podklad: Gryfix Experience.pdf str. 4"
+  },
+  {
+   "fakt": "Alpha Experience: 2 noci, do 12 lidí, od 190 000 Kč bez DPH, harmonogram 3 dnů",
+   "zdroj": "podklad: Gryfix Experience.pdf str. 5–7"
+  },
+  {
+   "fakt": "Beta Experience: 2 noci, do 12 lidí, od 100 000 Kč bez DPH, harmonogram 3 dnů",
+   "zdroj": "podklad: Gryfix Experience.pdf str. 8–10"
+  },
+  {
+   "fakt": "Charlie Experience on site: 9–16 h, do 20 lidí, 69 000 Kč bez DPH; měsíční školení 12 oblastí; roční spolupráce 12 školení od 490 000 Kč bez DPH",
+   "zdroj": "podklad: Gryfix Experience.pdf str. 11–12"
+  },
+  {
+   "fakt": "Cena zahrnuje ubytování a stravu, instruktory na místě a celkové odborné programové vedení; možnost customizace",
+   "zdroj": "podklad: Gryfix Experience.pdf"
+  },
+  {
+   "fakt": "Odbornost: spolupráce se špičkami s desítkami let praxe – 4 oblasti + a další",
+   "zdroj": "podklad: Gryfix Experience.pdf str. 13"
+  },
+  {
+   "fakt": "Built by Bite Marks Media; Media · Events · Experiences; 2027",
+   "zdroj": "podklad: Gryfix Experience.pdf str. 15–16"
+  }
+ ],
+ "chybi": [
+  "skutečné fotky z akcí a z místa (dodané působí jako AI vizualizace – na webu zatím jako ilustrace)",
+  "přesná adresa / obec u Kutné Hory (zatím jen „Kutná Hora“)",
+  "provozovatel a IČO Gryfixu (Bite Marks Media s.r.o.?)",
+  "krátké popisy jednotlivých modulů (co se v nich přesně děje)",
+  "jména nebo profily instruktorů (sekce Odbornost je zatím bez jmen)",
+  "claim: „safer future“ (PDF), nebo „safer tomorrow“ (docx)?",
+  "doména gryfix.cz – kde je a kdo ji spravuje",
+  "kam mají chodit poptávky z formuláře"
+ ],
+ "_poznamka": "Vyplněno ručně z podkladů klientky 16. 11. 2026.",
+ "mesto": "Kutná Hora",
+ "cilova_skupina": "firmy a jejich týmy (HR, vedení), do 12 lidí na pobyt, do 20 lidí on site",
+ "ton": "sebevědomý, akční, 'mise/briefing', anglické claimy; klientka píše 'team'",
+ "pismo": {
+  "pdf": "Inter",
+  "web": "Sora (display, geometrické jako wordmark) + Inter (text, jako PDF)"
+ },
+ "claimy": [
+  "FOR STRONGER TEAMS. FOR SAFER FUTURE. (podklad: Gryfix Experience.pdf; v docx 'SAFER TOMORROW')",
+  "Zkušenosti hrou, bezpečnost zážitkem (podklad: GRIFIX EXPERIENCE.docx)",
+  "LEAVE A MARK. (podklad: Gryfix Experience.pdf)"
+ ]
+}

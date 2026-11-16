@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ titulek or site.nazev }}</title>
+<meta name="description" content="{{ popis or site.popis }}">
+{% if site.navrh or noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<meta name="theme-color" content="{{ site.theme_color }}">
+<link rel="canonical" href="{{ site.url }}{{ cesta or '' }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="{{ titulek or site.nazev }}">
+<meta property="og:description" content="{{ popis or site.popis }}">
+<meta property="og:url" content="{{ site.url }}{{ cesta or '' }}">
+{% if og_url %}<meta property="og:image" content="{{ og_url }}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">{% endif %}
+<link rel="icon" href="{{ base }}img/gryfix-symbol.svg" type="image/svg+xml">
+<link rel="preload" href="{{ base }}fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% if jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endif %}
+</head>
+<body>
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<header class="hl" data-hl>
+  <div class="hl__in">
+    <a href="{{ url('') }}" class="hl__logo"><img class="hl__logo-svetle" src="{{ base }}img/gryfix-logo.png" alt="{{ site.nazev }}" width="760" height="253"><img class="hl__logo-tmave" src="{{ base }}img/gryfix-logo-tmave.png" alt="" width="760" height="253" aria-hidden="true"></a>
+    <nav class="menu" id="menu" aria-label="Hlavní">
+      {% for n in site.nav %}<a href="{{ n.href }}">{{ n.text }}</a>{% endfor %}
+      <a href="tel:+420{{ site.kontakt.telefon|replace(' ', '') }}" class="menu__tel">{{ site.kontakt.telefon }}</a>
+    </nav>
+    <a href="#poptavka" class="tl tl--bila hl__cta">Poptat program</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+<main id="obsah">
+{% block obsah %}{% endblock %}
+</main>
+<footer class="pata">
+  <div class="pata__ram">
+    <div class="pata__in">
+      <div class="pata__znacka">
+        <img src="{{ base }}{{ site.logo }}" alt="{{ site.nazev }}" width="760" height="253" loading="lazy">
+        <p class="pata__claim">For stronger teams.<br>For safer future.</p>
+      </div>
+      <div class="pata__sloupce">
+        <div>
+          <p class="pata__nad">Kontakt</p>
+          <p>{{ site.kontakt.osoba }}</p>
+          <p><a href="tel:+420{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></p>
+          <p><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email|replace('@', '@<wbr>')|safe }}</a></p>
+          <p>{{ site.kontakt.web }}</p>
+        </div>
+        <div>
+          <p class="pata__nad">Programy</p>
+          {% for p in data.programy %}<p><a href="#programy" data-vyber-program="{{ p.id }}">{{ p.nazev }} Experience</a></p>{% endfor %}
+          <p><a href="#okruhy">Vlastní program</a></p>
+        </div>
+        <div>
+          <p class="pata__nad">Místo</p>
+          <p>Kutná Hora</p>
+          <p>Pobyty až pro 20 lidí</p>
+        </div>
+      </div>
+    </div>
+    <div class="pata__spodek">
+      <p class="pata__mark">Leave a mark.</p>
+      <p>Built by Bite Marks Media · Media · Events · Experiences</p>
+    </div>
+    <p class="pata__obri" aria-hidden="true">Gryfix</p>
+  </div>
+</footer>
+<script src="{{ asset('js/main.js') }}" defer></script>
+</body>
+</html>

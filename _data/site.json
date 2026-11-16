@@ -1,0 +1,57 @@
+{
+ "slug": "gryfix-3",
+ "nazev": "Gryfix Experience",
+ "url": "https://webhunter-navrhy.github.io/gryfix-3/",
+ "base": "/gryfix-3/",
+ "lang": "cs",
+ "popis": "Zážitkové teambuildingy a školení bezpečnosti u Kutné Hory. Pobytové programy Alpha a Beta pro 12 lidí, Charlie on site až pro 20 lidí.",
+ "navrh": true,
+ "domena": "",
+ "og_image": "les-mapa.jpg",
+ "logo": "img/gryfix-logo.png",
+ "theme_color": "#33182F",
+ "typ": "Organization",
+ "ico": "",
+ "kontakt": {
+  "osoba": "Ing. Valérie Čížková",
+  "email": "valerie.cizkova@bitemarks.cz",
+  "telefon": "773 515 703",
+  "web": "www.gryfix.cz",
+  "adresa": {
+   "ulice": "",
+   "psc": "",
+   "mesto": "Kutná Hora",
+   "zeme": "CZ"
+  }
+ },
+ "oteviraci_doba": [],
+ "sameas": [],
+ "cenove_rozpeti": "",
+ "formular": {
+  "endpoint": "",
+  "demo": true,
+  "predmet": "Poptávka Gryfix Experience"
+ },
+ "nav": [
+  {
+   "text": "Programy",
+   "href": "#programy"
+  },
+  {
+   "text": "Vlastní program",
+   "href": "#okruhy"
+  },
+  {
+   "text": "Místo",
+   "href": "#misto"
+  },
+  {
+   "text": "Odbornost",
+   "href": "#odbornost"
+  },
+  {
+   "text": "Poptávka",
+   "href": "#poptavka"
+  }
+ ]
+}

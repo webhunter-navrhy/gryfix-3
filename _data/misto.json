@@ -1,0 +1,32 @@
+[
+ {
+  "f": "stodola-exterier.jpg",
+  "alt": "Cihlová stodola s proskleným štítem a zahradou",
+  "p": "Cihlová stodola"
+ },
+ {
+  "f": "bazen-den.jpg",
+  "alt": "Vnitřní bazén s okny do zahrady",
+  "p": "Bazén"
+ },
+ {
+  "f": "sauna.jpg",
+  "alt": "Sauna s oknem do zeleně",
+  "p": "Sauna"
+ },
+ {
+  "f": "krb-schodiste.jpg",
+  "alt": "Dřevěné schodiště, cihlové zdi a krb",
+  "p": "Společný prostor s krbem"
+ },
+ {
+  "f": "bazen-vecer.jpg",
+  "alt": "Bazén večer",
+  "p": "Wellness večer"
+ },
+ {
+  "f": "kooperacni-hra-zahrada.jpg",
+  "alt": "Kooperační hra na zahradě, v pozadí chrám sv. Barbory v Kutné Hoře",
+  "p": "Zahrada s výhledem na sv. Barboru"
+ }
+]
