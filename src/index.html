@@ -195,7 +195,7 @@
         <p class="odhal">{{ ch.rocni.text2|nb }}</p>
         <div class="rocni__dole">
           <p class="rocni__cena">{{ ch.rocni.cena }}</p>
-          <a href="#poptavka" class="tl tl--svestka tl--se-sipkou" data-poptat="Roční spolupráce">Poptat roční spolupráci <span class="tl__sipka" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M5 15 15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+          <a href="#poptavka" class="tl tl--zlata tl--se-sipkou" data-poptat="Roční spolupráce">Poptat roční spolupráci <span class="tl__sipka" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M5 15 15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
         </div>
       </div>
     </div>
@@ -234,7 +234,7 @@
         <ul class="misto__fakta" role="list">
           {% for f in o.misto_fakta[1:] %}<li>{{ f|nb }}</li>{% endfor %}
         </ul>
-        <a href="#poptavka" class="tl tl--svestka">Poptat pobyt</a>
+        <a href="#poptavka" class="tl tl--zlata">Poptat pobyt</a>
       </div>
       {% for m in data.misto[1:4] %}
       <figure class="misto__f misto__f--lista odhal">{{ img(m.f, m.alt, sizes='(min-width: 64rem) 30vw, 100vw') }}<figcaption>{{ m.p }}</figcaption></figure>
