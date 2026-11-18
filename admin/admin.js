@@ -436,7 +436,7 @@ function vProgramy(arg) {
       noSort: true, noDelete: true, open,
       title: (p) => p.nazev + ' Experience', sub: (p) => [p.cena, p.delka, p.kapacita].filter(Boolean).join(' · '), thumb: (p) => p.dny?.[0]?.foto?.f,
       body: (p, b, r) => {
-        b.append(
+        b.append(...[
           row2(fText(p, 'nazev', 'Název (na webu se doplní „Experience“)', { on: r }), fText(p, 'cena', 'Cena', { ph: 'od 190 000 Kč', on: r })),
           row2(fText(p, 'dph', 'Poznámka k ceně', { ph: 'bez DPH' }), fText(p, 'delka', 'Délka', { ph: '2 noci', on: r })),
           fText(p, 'kapacita', 'Počet lidí', { ph: 'do 12 lidí', on: r }),
@@ -469,7 +469,7 @@ function vProgramy(arg) {
           p.rocni ? subH('Roční spolupráce (široký pás pod programy)') : null,
           ...(p.rocni ? [fText(p.rocni, 'nazev', 'Nadpis'), fText(p.rocni, 'text', 'Text', { multi: true, rows: 3 }), fText(p.rocni, 'text2', 'Druhý odstavec', { multi: true, rows: 3 }),
             fText(p.rocni, 'cena', 'Cena'), fImg(p.rocni.foto, 'f', 'Fotka', { name: 'rocni', max: 1600, hint: CUT }), fText(p.rocni.foto, 'alt', 'Popis fotky')] : []),
-        );
+        ].filter(Boolean));
       },
     }));
 }
