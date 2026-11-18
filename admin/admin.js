@@ -476,16 +476,21 @@ function vProgramy(arg) {
 
 /* ---------------------------------------------------------------- fotky */
 function vFotky() {
-  const F = S.D.fotky, M = S.D.misto, T = S.D.obsah.test;
+  const F = S.D.fotky, M = S.D.misto, T = S.D.obsah.test, P = S.D.programy;
   const MISTO = ['Velká fotka vlevo nahoře', 'Řada tří fotek – 1.', 'Řada tří fotek – 2.', 'Řada tří fotek – 3.', 'Čtverec vpravo dole', 'Široká fotka dole'];
-  view('Fotky', 'Všechny fotky na webu. U každé klikněte na „Nahrát novou“ (fotka se sama zmenší a připraví pro mobil) nebo vyberte některou, která už na webu je. Fotky lidí u programů najdete v sekci Programy.',
+  view('Fotky', 'Všechny fotky na webu. U každé klikněte na „Nahrát novou“ (fotka se sama zmenší a připraví pro mobil) nebo vyberte některou, která už na webu je. Fotky lidí u programů a roční spolupráce jsou úplně dole.',
     card('Fotky v sekcích', null, ...FOTKY.flatMap(([k, t, cut, hint]) => { F[k] = F[k] || { f: '', alt: '' }; return [fImg(F[k], 'f', t, { name: k, max: cut ? 1600 : 2400, hint, foto: !cut }), fText(F[k], 'alt', 'Popis fotky (co je na ní)')]; })),
     card('Místo – Kutná Hora', 'Šest fotek prostor. Popisek se ukazuje přímo na fotce.', ...M.map((m, i) => h('div', { style: i ? 'border-top:1px solid var(--line);padding-top:1rem;margin-top:1rem' : '' },
       fImg(m, 'f', `${i + 1}. ${MISTO[i]}`, { name: 'misto', max: 2400, foto: true }), row2(fText(m, 'p', 'Popisek na fotce'), fText(m, 'alt', 'Popis pro vyhledávače'))))),
     card('Test situační pozornosti', null,
       note('<b>Pozor:</b> otázky testu se ptají na to, co je na této fotce. Když ji vyměníte, upravte i otázky v sekci <a href="#/texty">Texty</a>. Fotka je zároveň malý náhled na kartě v úvodu webu.'),
       fImg(T, 'foto', 'Fotka k testu', { name: 'test', max: 2000, foto: true }), fText(T, 'alt', 'Popis fotky')),
-    note('Fotky lidí u jednotlivých dnů a u roční spolupráce: <a href="#/programy">Programy</a>.'));
+    card('Programy – fotky lidí', 'Fotka 1. dne je zároveň obrázek na kartě programu, další dny jsou u rozvrhu. ' + CUT,
+      ...P.flatMap((p, pi) => [
+        h('h3', { style: (pi ? 'border-top:1px solid var(--line);padding-top:1rem;margin-top:1.25rem;' : '') + 'margin-bottom:.5rem' }, p.nazev + ' Experience'),
+        ...(p.dny || []).flatMap((d, di) => { d.foto = d.foto || { f: '', alt: '' }; return [fImg(d.foto, 'f', d.n + (di ? '' : ' – obrázek na kartě programu'), { name: `${p.id}-${d.n}`, max: 1600 }), fText(d.foto, 'alt', 'Popis fotky (co je na ní)')]; }),
+        ...(p.rocni ? [fImg(p.rocni.foto, 'f', 'Roční spolupráce – široký pás pod programy', { name: 'rocni', max: 1600 }), fText(p.rocni.foto, 'alt', 'Popis fotky')] : []),
+      ])));
 }
 
 /* ---------------------------------------------------------------- texty */
