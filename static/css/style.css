@@ -515,6 +515,8 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 .pata__sloupce a { text-decoration: none; }
 .pata__sloupce a:hover { color: var(--zlata-sv); }
 .pata__spodek { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem 2rem; margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.15); font-size: .88rem; color: rgba(255,255,255,.65); }
+.pata__spodek a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.35); text-underline-offset: .2em; }
+.pata__spodek a:hover { color: var(--zlata-sv); text-decoration-color: currentColor; }
 .pata__mark { font: 500 1.1rem/1.2 var(--display); color: #fff; }
 .pata__obri { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 30%); z-index: -1; font: 800 clamp(9rem, 31vw, 30rem)/.8 var(--display); font-stretch: 62%; text-transform: uppercase; color: rgba(184,149,82,.16); white-space: nowrap; pointer-events: none; }
 @media (max-width: 63.99rem) {
