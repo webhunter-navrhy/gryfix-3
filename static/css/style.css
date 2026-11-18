@@ -3,6 +3,8 @@
 @font-face{font-family:'Inter';font-style:italic;font-weight:400;font-display:swap;src:url(../fonts/inter-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url(../fonts/inter-normal-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url(../fonts/inter-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Krona One';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/krona-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Krona One';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/krona-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(../fonts/archivo-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(../fonts/archivo-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 
@@ -25,6 +27,7 @@
   --linka-sv: rgba(247,242,232,.14);
   --display: 'Archivo', 'Inter', system-ui, sans-serif;
   --text: 'Inter', system-ui, sans-serif;
+  --logo: 'Krona One', 'Archivo', system-ui, sans-serif; /* široké verzálky jako GRYFIX v logu (18. 11.) */
   --wrap: 86rem;
   --gut: clamp(1.25rem, 4vw, 3.5rem);
   --sekce: clamp(5.5rem, 10vw, 9rem);
@@ -41,7 +44,7 @@ body { margin: 0; overflow-x: clip; background: var(--svestka); color: var(--kre
 img, picture, svg { display: block; max-width: 100%; height: auto; }
 input, button, textarea, select { font: inherit; color: inherit; }
 button { cursor: pointer; background: none; border: 0; padding: 0; }
-h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 500; text-wrap: balance; letter-spacing: -.03em; line-height: 1.04; }
+h1, h2, h3 { margin: 0; font-family: var(--logo); font-weight: 400; text-transform: uppercase; text-wrap: balance; letter-spacing: -.005em; line-height: 1.14; }
 p, figure { margin: 0; }
 p { text-wrap: pretty; }
 :where(ul[role="list"], ol[role="list"]) { list-style: none; margin: 0; padding: 0; }
@@ -126,7 +129,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 .uvod__obri { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 31%); z-index: -1; font: 800 clamp(9rem, 30vw, 30rem)/.8 var(--display); font-stretch: 62%; letter-spacing: -.02em; text-transform: uppercase; color: rgba(255,255,255,.13); white-space: nowrap; pointer-events: none; }
 .uvod__in { position: relative; width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: 1fr auto; gap: 2rem 3rem; padding: calc(var(--hl-v) + 2.5rem) clamp(1.25rem, 3.6vw, 3.5rem) clamp(2rem, 5vw, 4.25rem); }
 .uvod__text { grid-column: 1; grid-row: 2; max-width: 50rem; }
-.uvod__h1 { font-size: clamp(3rem, 7.4vw, 7.25rem); font-weight: 500; letter-spacing: -.045em; line-height: 1; }
+.uvod__h1 { font-size: clamp(2.3rem, 4.7vw, 4.6rem); letter-spacing: -.01em; line-height: 1.1; }
 .uvod__h1 span { display: block; }
 .uvod__h1 span + span { color: var(--zlata-sv); }
 .uvod__perex { margin-top: 1.5rem; max-width: 33rem; font-size: clamp(1.05rem, 1.3vw, 1.2rem); line-height: 1.55; color: rgba(255,255,255,.88); }
@@ -151,7 +154,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
   .uvod__ram { min-height: max(38rem, calc(100svh - 2 * var(--ram))); }
 }
 @media (max-width: 30rem) {
-  .uvod__h1 { font-size: clamp(2.6rem, 12.5vw, 3.4rem); }
+  .uvod__h1 { font-size: clamp(1.6rem, 8.2vw, 2.2rem); }
   .uvod__akce .tl { flex: 1 1 auto; }
   .uvod__karta { grid-template-columns: 4.25rem 1fr; }
 }
@@ -202,7 +205,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 
 /* ---------- SCHOPNOSTI ---------- */
 .schop { padding: var(--sekce) 0; }
-.schop__h2 { font-size: clamp(2.4rem, 5.2vw, 4.75rem); max-width: 14ch; }
+.schop__h2 { font-size: clamp(1.75rem, 3.5vw, 3.2rem); max-width: 18ch; }
 .schop__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(2rem, 4vw, 4rem); margin-top: clamp(2.5rem, 5vw, 4rem); align-items: start; }
 .bublina { position: relative; padding: clamp(1.75rem, 3vw, 2.75rem) clamp(1.5rem, 3vw, 2.75rem) 0; }
 .bublina__ramecek { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--zlata); pointer-events: none; overflow: visible; }
@@ -255,7 +258,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 /* ---------- PROGRAMY: ODZNAKY ---------- */
 .prog { padding: var(--sekce) 0; background: linear-gradient(180deg, var(--svestka), var(--panel) 18rem, var(--panel) calc(100% - 10rem), var(--svestka)); }
 .prog__hlava { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 1.5rem 3rem; align-items: end; }
-.prog__h2 { font-size: clamp(2.4rem, 5.2vw, 4.75rem); }
+.prog__h2 { font-size: clamp(1.75rem, 3.5vw, 3.2rem); }
 .prog__perex { font-size: 1.1rem; color: var(--sv-tx); }
 .odznaky { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.75rem); margin-top: clamp(3rem, 6vw, 5rem); padding-top: 4rem; align-items: start; }
 .odznaky__spojnice { position: absolute; left: 0; right: 0; top: 7rem; width: 100%; height: 12rem; color: var(--zlata); opacity: .6; pointer-events: none; }
@@ -362,7 +365,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 .rocni__lide { width: min(17rem, 80%); margin-top: -5rem; }
 .rocni__lide img { width: 100%; height: auto; filter: drop-shadow(0 1rem 1.25rem rgba(0,0,0,.3)); }
 .rocni__stitek { position: absolute; right: 1rem; top: 1rem; padding: .5rem .9rem; border-radius: 999px; background: var(--tyrkys); color: var(--svestka); font: 700 1.05rem/1 var(--display); font-stretch: 62%; text-transform: uppercase; letter-spacing: .03em; }
-.rocni__h3 { font-size: clamp(2rem, 3.6vw, 3.2rem); }
+.rocni__h3 { font-size: clamp(1.5rem, 2.5vw, 2.25rem); }
 .rocni__perex { margin-top: 1.25rem; font: 500 clamp(1.15rem, 1.5vw, 1.35rem)/1.45 var(--display); letter-spacing: -.01em; }
 .rocni__text > p + p { margin-top: 1rem; }
 .rocni__dole { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed rgba(184,149,82,.55); }
@@ -373,7 +376,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 /* ---------- VLASTNÍ PROGRAM ---------- */
 .okruhy { padding: var(--sekce) 0; }
 .okruhy__hlava { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 28rem); gap: 1.5rem 3rem; align-items: end; }
-.okruhy__h2 { font-size: clamp(2.4rem, 5.2vw, 4.75rem); max-width: 12ch; }
+.okruhy__h2 { font-size: clamp(1.75rem, 3.5vw, 3.2rem); max-width: 16ch; }
 .okruhy__perex { font-size: 1.1rem; color: var(--sv-tx); }
 .dlazdice { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; margin-top: clamp(2.5rem, 5vw, 3.75rem); }
 .dl { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; min-height: 4.75rem; height: 100%; padding: .9rem .9rem .9rem 1.5rem; border-radius: 1.15rem; background: var(--panel); cursor: pointer; transition: background-color .25s, transform .3s var(--ease); position: relative; }
@@ -437,7 +440,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 .odb__foto { border-radius: calc(var(--R) - .5rem); overflow: hidden; aspect-ratio: 4 / 5; }
 .odb__foto img { width: 100%; height: 100%; object-fit: cover; }
 .odb__text { padding-block: 2rem; }
-.odb__h2 { font-size: clamp(1.8rem, 3.2vw, 2.9rem); line-height: 1.1; }
+.odb__h2 { font-family: var(--display); font-weight: 500; text-transform: none; letter-spacing: -.03em; font-size: clamp(1.8rem, 3.2vw, 2.9rem); line-height: 1.1; }
 .odb__obory { margin-top: clamp(2rem, 4vw, 3rem); display: grid; gap: 1rem; }
 .odb__obory li { display: flex; align-items: center; gap: 1.4rem; font: 500 clamp(1.1rem, 1.5vw, 1.35rem)/1.3 var(--display); letter-spacing: -.01em; padding: .6rem 1.25rem .6rem .9rem; background: #fff; border-radius: 1.15rem; min-height: 4.75rem; }
 .odb__obory .znak { flex: none; width: 2.6rem; height: 2.6rem; border-radius: .45rem; background: var(--svestka); box-shadow: none; }
@@ -455,7 +458,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 /* ---------- POPTÁVKA ---------- */
 .popt { padding: var(--sekce) 0; }
 .popt__hlava { max-width: 44rem; }
-.popt__h2 { font-size: clamp(2.4rem, 5.2vw, 4.75rem); }
+.popt__h2 { font-size: clamp(1.75rem, 3.5vw, 3.2rem); }
 .popt__perex { margin-top: 1.25rem; font-size: 1.15rem; color: var(--sv-tx); }
 .popt__in { display: grid; grid-template-columns: minmax(0, 21rem) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); margin-top: clamp(4rem, 7vw, 6rem); align-items: start; position: relative; }
 .popt__in::before { content: ""; position: absolute; left: 21rem; width: clamp(1.5rem, 4vw, 4rem); top: 9rem; border-top: 2px dotted rgba(184,149,82,.6); }
