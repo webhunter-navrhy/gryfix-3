@@ -1,0 +1,22 @@
+{
+ "uvod": {
+  "f": "les-mapa.jpg",
+  "alt": "Team s batohy se v lese radí nad mapou"
+ },
+ "vize": {
+  "f": "briefing-stodola.jpg",
+  "alt": "Instruktor vede briefing teamu v cihlové stodole"
+ },
+ "hra": {
+  "f": "lide-hra.png",
+  "alt": "Team u stolu řeší kooperační hru s kartičkami symbolů"
+ },
+ "odbornost": {
+  "f": "les-soumrak.jpg",
+  "alt": "Les za soumraku, team s lucernami"
+ },
+ "kontakt": {
+  "f": "valerie-cizkova.png",
+  "alt": "Ing. Valérie Čížková"
+ }
+}

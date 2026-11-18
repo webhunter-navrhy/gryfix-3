@@ -171,6 +171,7 @@ document.documentElement.classList.add('js');
 (function () {
   document.querySelectorAll('form.formular').forEach(function (f) {
     var stav = f.querySelector('.formular-stav');
+    var start = Date.now();
     f.addEventListener('submit', function (e) {
       var endpoint = f.getAttribute('data-endpoint');
       var demo = f.getAttribute('data-demo') === '1';
@@ -182,9 +183,18 @@ document.documentElement.classList.add('js');
       }
       e.preventDefault();
       stav.textContent = 'Odesílám…';
-      fetch(endpoint, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } })
-        .then(function (r) { if (!r.ok) throw new Error(r.status); f.reset(); stav.textContent = 'Děkujeme, zpráva byla odeslána.'; })
-        .catch(function () { stav.textContent = 'Odeslání se nepodařilo. Napište nám prosím e-mailem.'; });
+      var fd = new FormData(f), fields = {};
+      [['program', 'Program'], ['okruhy', 'Vybrané okruhy'], ['jmeno', 'Jméno'], ['firma', 'Firma'], ['email', 'E-mail'], ['telefon', 'Telefon'],
+       ['pocet', 'Počet lidí'], ['termin', 'Termín'], ['zprava', 'Zpráva']].forEach(function (p) {
+        var v = String(fd.get(p[0]) || '').trim(); if (v) fields[p[1]] = v;
+      });
+      var tlacitko = f.querySelector('[type=submit]'); if (tlacitko) tlacitko.disabled = true;
+      fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'dopyt', fields: fields, hp: '', ms: Date.now() - start, page: location.href.split('#')[0], lang: 'cs' }) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || r.status); }); })
+        .then(function () { f.reset(); stav.textContent = 'Děkujeme, poptávka je odeslaná. Ozveme se Vám co nejdřív.'; })
+        .catch(function (err) { stav.textContent = (err && err.message && isNaN(err.message) ? err.message + ' ' : '') + 'Případně napište na ' + f.getAttribute('data-email') + '.'; })
+        .then(function () { if (tlacitko) tlacitko.disabled = false; });
     });
   });
 })();

@@ -55,6 +55,8 @@ class Obrazky:
         self.pocet = 0
 
     def _zpracuj(self, nazev):
+        if nazev.startswith("img/"):          # nahrané z adminu: img/uploads/RRRR-MM/x.webp
+            nazev = nazev[4:]
         if nazev in self.info:
             return self.info[nazev]
         zdroj = os.path.join(IMG, nazev)
@@ -113,6 +115,8 @@ class Obrazky:
         return self.base + best[2]
 
     def og(self, nazev):
+        if nazev.startswith("img/"):
+            nazev = nazev[4:]
         zdroj = os.path.join(IMG, nazev)
         if not os.path.exists(zdroj):
             return None
@@ -125,7 +129,74 @@ def hash_souboru(cesta):
     return hashlib.sha1(open(cesta, "rb").read()).hexdigest()[:10]
 
 
-def jsonld(site):
+def cena_cislo(t):
+    c = re.sub(r"[^0-9]", "", t or "")
+    return int(c) if c else None
+
+
+def jsonld(site, data=None):
+    """Organization + ProfessionalService s nabídkou programů (GEO: AI vyhledávače čtou ceny a rozsah)."""
+    k = site.get("kontakt", {})
+    a = k.get("adresa", {})
+    url = site["url"]
+    org_id = url + "#organizace"
+    adr = {"@type": "PostalAddress", "streetAddress": a.get("ulice"), "postalCode": a.get("psc"),
+           "addressLocality": a.get("mesto"), "addressRegion": a.get("kraj"), "addressCountry": a.get("zeme") or "CZ"}
+    adr = {x: v for x, v in adr.items() if v}
+    org = {"@type": ["Organization", "ProfessionalService"], "@id": org_id, "name": site["nazev"], "url": url,
+           "description": site.get("popis", ""), "image": url + "og.jpg", "address": adr,
+           "areaServed": {"@type": "Country", "name": "Česká republika"}, "knowsLanguage": ["cs", "en"]}
+    if site.get("logo"): org["logo"] = url + site["logo"]
+    if k.get("telefon"): org["telephone"] = "+420 " + k["telefon"]
+    if k.get("email"): org["email"] = k["email"]
+    if k.get("telefon") or k.get("email"):
+        cp = {"@type": "ContactPoint", "contactType": "poptávky programů", "availableLanguage": ["cs", "en"]}
+        if k.get("telefon"): cp["telephone"] = "+420 " + k["telefon"]
+        if k.get("email"): cp["email"] = k["email"]
+        org["contactPoint"] = cp
+    if k.get("osoba"):
+        org["founder"] = {"@type": "Person", "name": k["osoba"], "jobTitle": k.get("role") or "zakladatelka"}
+    if site.get("provozovatel"):
+        pr = site["provozovatel"]
+        org["parentOrganization"] = {x: v for x, v in {"@type": "Organization", "name": pr.get("nazev"),
+                                     "url": pr.get("web"), "taxID": pr.get("ico")}.items() if v}
+    if site.get("ico"): org["taxID"] = site["ico"]
+    if site.get("sameas"): org["sameAs"] = site["sameas"]
+    if site.get("klicova_slova"): org["knowsAbout"] = site["klicova_slova"]
+    graf = [org]
+    nab = []
+    for p in (data or {}).get("programy", []):
+        sluzba = {"@type": "Service", "@id": url + "#program-" + p["id"], "name": p["nazev"] + " Experience",
+                  "serviceType": "teambuilding a výcvik krizové připravenosti", "provider": {"@id": org_id},
+                  "areaServed": "Česká republika",
+                  "description": " ".join(x for x in (p.get("perex"), p.get("delka"), p.get("kapacita")) if x)}
+        o = {"@type": "Offer", "itemOffered": sluzba, "priceCurrency": "CZK", "url": url + "#programy",
+             "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "CZK",
+                                    "valueAddedTaxIncluded": False}}
+        c = cena_cislo(p.get("cena"))
+        if c:
+            o["price"] = c
+            o["priceSpecification"]["price"] = c
+        nab.append(o)
+        r_ = p.get("rocni")
+        if r_:
+            s2 = {"@type": "Service", "@id": url + "#rocni-spoluprace", "name": r_.get("nazev"),
+                  "provider": {"@id": org_id}, "description": r_.get("text")}
+            o2 = {"@type": "Offer", "itemOffered": s2, "priceCurrency": "CZK",
+                  "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "CZK",
+                                         "valueAddedTaxIncluded": False}}
+            c2 = cena_cislo(r_.get("cena"))
+            if c2:
+                o2["priceSpecification"]["minPrice"] = c2
+            nab.append(o2)
+    if nab:
+        org["hasOfferCatalog"] = {"@type": "OfferCatalog", "name": "Programy Gryfix Experience", "itemListElement": nab}
+    graf.append({"@type": "WebSite", "@id": url + "#web", "url": url, "name": site["nazev"], "inLanguage": "cs",
+                 "publisher": {"@id": org_id}})
+    return json.dumps({"@context": "https://schema.org", "@graph": graf}, ensure_ascii=False).replace("</", "<\\/")
+
+
+def jsonld_puvodni(site):
     k = site.get("kontakt", {})
     a = k.get("adresa", {})
     j = {"@context": "https://schema.org", "@type": site.get("typ") or "LocalBusiness", "name": site["nazev"],
@@ -188,7 +259,7 @@ def main():
     env.filters["nb"] = nb
     env.filters["cas"] = cas
     env.globals.update(site=site, data=data, base=base, asset=asset, url=url, img=obr.img, img_url=obr.img_url,
-                       og_url=og_url, jsonld=jsonld(site), titulek="", popis="", cesta="", noindex=False)
+                       og_url=og_url, jsonld=jsonld(site, data), titulek="", popis="", cesta="", noindex=False)
     stranky = []
     for f in sorted(os.listdir(SRC)):
         if not f.endswith(".html") or f.startswith("_"):
@@ -225,6 +296,57 @@ def main():
     open(os.path.join(DIST, ".nojekyll"), "w").close()
     if site.get("domena") and not navrh:
         open(os.path.join(DIST, "CNAME"), "w").write(site["domena"] + "\n")
+
+    # administrace (webhunter-admin) – knihovna fotek, nahrané fotky, verze pro hlídání publikace
+    adm = os.path.join(ROOT, "admin")
+    if os.path.isdir(adm):
+        shutil.copytree(adm, os.path.join(DIST, "admin"))
+        ix = os.path.join(DIST, "admin", "index.html")
+        t = open(ix, encoding="utf-8").read()
+        t = t.replace("__V_ACSS__", hash_souboru(os.path.join(adm, "admin.css"))).replace("__V_AJS__", hash_souboru(os.path.join(adm, "admin.js")))
+        open(ix, "w", encoding="utf-8").write(t)
+        knihovna = []
+        for kor, _, soubory in sorted(os.walk(IMG)):
+            for f in sorted(soubory):
+                if os.path.splitext(f)[1].lower() not in RASTER:
+                    continue
+                rel = os.path.relpath(os.path.join(kor, f), IMG)
+                if rel.startswith("og") or "logo" in rel or "symbol" in rel:
+                    continue
+                k = "img/" + rel if rel.startswith("uploads/") else rel
+                knihovna.append({"k": k, "src": obr.img_url(k, 640)[len(base):]})
+        knihovna.sort(key=lambda x: (not x["k"].startswith("img/uploads/"), x["k"]), reverse=False)
+        up = [x for x in knihovna if x["k"].startswith("img/")]
+        up.sort(key=lambda x: x["k"], reverse=True)
+        knihovna = up + [x for x in knihovna if not x["k"].startswith("img/")]
+        with open(os.path.join(DIST, "admin", "images.json"), "w", encoding="utf-8") as fh:
+            json.dump(knihovna, fh, ensure_ascii=False)
+    upl = os.path.join(IMG, "uploads")
+    if os.path.isdir(upl):
+        shutil.copytree(upl, os.path.join(DIST, "img", "uploads"), dirs_exist_ok=True)
+    with open(os.path.join(DIST, "version.json"), "w") as fh:
+        json.dump({"sha": os.environ.get("GITHUB_SHA", "local"), "cas": datetime.datetime.now().isoformat(timespec="seconds")}, fh)
+
+    # llms.txt (GEO): stručný strojově čitelný popis pro AI vyhledávače
+    if data.get("programy"):
+        k = site.get("kontakt", {})
+        o = data.get("obsah", {})
+        r_ = [f"# {site['nazev']}", "", f"> {site.get('popis', '')}", ""]
+        if o.get("uvod"):
+            r_ += [re.sub(r"\s+", " ", o["uvod"]), ""]
+        r_ += ["## Programy", ""]
+        for p in data["programy"]:
+            r_.append(f"- {p['nazev']} Experience: {p.get('delka', '')}, {p.get('kapacita', '')}, {p.get('cena', '')} {p.get('dph', '')}. {p.get('perex', '')}".strip())
+            if p.get("rocni"):
+                rr = p["rocni"]
+                r_.append(f"- {rr.get('nazev', '')}: {rr.get('cena', '')}. {rr.get('text', '')}".strip())
+        if o.get("okruhy"):
+            r_ += ["", "## Vlastní program – okruhy", ""] + [f"- {x if isinstance(x, str) else x.get('n') or x.get('nazev') or ''}" for x in o["okruhy"]]
+        if o.get("odbornost"):
+            r_ += ["", "## Odbornost", ""] + [f"- {x if isinstance(x, str) else ' – '.join(str(v) for v in x.values())}" for x in o["odbornost"]]
+        r_ += ["", "## Kontakt", "", f"- {k.get('osoba', '')}", f"- E-mail: {k.get('email', '')}", f"- Telefon: +420 {k.get('telefon', '')}",
+               f"- Místo: {k.get('adresa', {}).get('mesto', '')}, Česká republika", f"- Web: {site['url']}"]
+        open(os.path.join(DIST, "llms.txt"), "w", encoding="utf-8").write("\n".join(r_) + "\n")
 
     print(f"OK: {len(stranky)} stránek, {len(obr.info)} obrázků -> dist/ ({'NÁVRH, noindex' if navrh else 'OSTRÝ WEB, indexovatelný'})")
 

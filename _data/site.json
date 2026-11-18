@@ -4,7 +4,7 @@
  "url": "https://webhunter-navrhy.github.io/gryfix-3/",
  "base": "/gryfix-3/",
  "lang": "cs",
- "popis": "Zážitkové teambuildingy a školení bezpečnosti u Kutné Hory. Pobytové programy Alpha a Beta pro 12 lidí, Charlie on site až pro 20 lidí.",
+ "popis": "Zážitkové teambuildingy a školení krizové připravenosti u Kutné Hory. Pobytové programy Alpha a Beta pro 12 lidí, Charlie on site až pro 20 lidí, roční spolupráce.",
  "navrh": true,
  "domena": "",
  "og_image": "les-mapa.jpg",
@@ -21,15 +21,16 @@
    "ulice": "",
    "psc": "",
    "mesto": "Kutná Hora",
-   "zeme": "CZ"
+   "zeme": "CZ",
+   "kraj": "Středočeský kraj"
   }
  },
  "oteviraci_doba": [],
  "sameas": [],
  "cenove_rozpeti": "",
  "formular": {
-  "endpoint": "",
-  "demo": true,
+  "endpoint": "https://webhunter-admin.webhunter.workers.dev/api/gryfix-3/form",
+  "demo": false,
   "predmet": "Poptávka Gryfix Experience"
  },
  "nav": [
@@ -53,5 +54,21 @@
    "text": "Poptávka",
    "href": "#poptavka"
   }
+ ],
+ "titulek": "Gryfix Experience – teambuilding a krizová připravenost, Kutná Hora",
+ "provozovatel": {
+  "nazev": "Bite Marks Media s.r.o.",
+  "ico": "23672161",
+  "web": "https://bitemarks.cz"
+ },
+ "klicova_slova": [
+  "teambuilding",
+  "zážitkový teambuilding",
+  "krizová připravenost",
+  "situační pozornost",
+  "první pomoc",
+  "bushcraft",
+  "sebeobrana",
+  "školení bezpečnosti pro firmy"
  ]
 }

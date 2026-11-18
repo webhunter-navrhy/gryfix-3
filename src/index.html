@@ -1,5 +1,5 @@
 {% extends "_base.html" %}
-{% set titulek = 'Gryfix Experience – zážitkové teambuildingy, Kutná Hora' %}
+{% set titulek = site.titulek %}
 {% set cesta = '' %}
 {% set o = data.obsah %}
 {% block obsah %}
@@ -7,7 +7,7 @@
 {# ---------- ÚVOD ---------- #}
 <section class="uvod">
   <div class="uvod__ram">
-    <div class="uvod__foto">{{ img('les-mapa.jpg', 'Team s batohy se v lese radí nad mapou', sizes='100vw') }}</div>
+    <div class="uvod__foto">{{ img(data.fotky.uvod.f, data.fotky.uvod.alt, sizes='100vw') }}</div>
     <p class="uvod__obri" aria-hidden="true">Gryfix</p>
     <div class="uvod__in">
       <div class="uvod__text">
@@ -33,7 +33,7 @@
 {# ---------- VIZE: ERB ---------- #}
 <section class="vize" id="vize">
   <div class="vize__ram">
-    <div class="vize__foto">{{ img('briefing-stodola.jpg', 'Instruktor vede briefing teamu v cihlové stodole', sizes='100vw') }}</div>
+    <div class="vize__foto">{{ img(data.fotky.vize.f, data.fotky.vize.alt, sizes='100vw') }}</div>
     <div class="erb odhal">
       <span class="erb__kridlo erb__kridlo--l" aria-hidden="true"></span>
       <span class="erb__kridlo erb__kridlo--p" aria-hidden="true"></span>
@@ -68,7 +68,7 @@
           {% for s in o.schopnosti %}<li data-schopnost="{{ s }}" style="--i: {{ loop.index0 }}">{{ s|nb }}</li>{% endfor %}
         </ul>
         <p class="bublina__zaver">…a proměňte je v&nbsp;cenné zkušenosti. <span aria-hidden="true">→</span></p>
-        <figure class="bublina__lide">{{ img('lide-hra.png', 'Team u stolu řeší kooperační hru s kartičkami symbolů', sizes='(min-width: 64rem) 34vw, 90vw') }}</figure>
+        <figure class="bublina__lide">{{ img(data.fotky.hra.f, data.fotky.hra.alt, sizes='(min-width: 64rem) 34vw, 90vw') }}</figure>
       </div>
 
       <div class="test odhal" data-test data-sekundy="{{ o.test.sekundy }}">
@@ -78,7 +78,7 @@
         </div>
         <div class="test__plocha">
           <div class="test__foto" data-test-foto>
-            {{ img(o.test.foto, 'Instruktor ukazuje teamu první pomoc na figuríně, vedle leží lékárnička', sizes='(min-width: 64rem) 50vw, 100vw') }}
+            {{ img(o.test.foto, o.test.alt, sizes='(min-width: 64rem) 50vw, 100vw') }}
           </div>
           <div class="test__cas" aria-hidden="true"><span data-test-cas>{{ o.test.sekundy }}</span><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" /></svg></div>
           <div class="test__vrstva test__start" data-test-faze="start">
@@ -249,7 +249,7 @@
 {# ---------- ODBORNOST ---------- #}
 <section class="odb" id="odbornost">
   <div class="odb__ram">
-    <figure class="odb__foto odhal">{{ img('les-soumrak.jpg', 'Les za soumraku, team s lucernami', sizes='(min-width: 64rem) 44vw, 100vw') }}</figure>
+    <figure class="odb__foto odhal">{{ img(data.fotky.odbornost.f, data.fotky.odbornost.alt, sizes='(min-width: 64rem) 44vw, 100vw') }}</figure>
     <div class="odb__text">
       <h2 class="odb__h2 odhal">{{ o.odbornost_uvod|nb }}</h2>
       <ul class="odb__obory" role="list">
@@ -270,7 +270,7 @@
     <div class="popt__in">
       <div class="vizitka">
         <div class="vizitka__hlava">
-          <figure class="vizitka__foto">{{ img('valerie-cizkova.png', site.kontakt.osoba, sizes='(min-width: 64rem) 12rem, 40vw') }}</figure>
+          <figure class="vizitka__foto">{{ img(data.fotky.kontakt.f, data.fotky.kontakt.alt or site.kontakt.osoba, sizes='(min-width: 64rem) 12rem, 40vw') }}</figure>
           <span class="karta__znak" aria-hidden="true"><img src="{{ base }}img/gryfix-symbol.svg" alt="" width="30" height="30"></span>
         </div>
         <div class="vizitka__udaje">
@@ -281,7 +281,7 @@
           <p class="vizitka__web">{{ site.kontakt.web }}</p>
         </div>
       </div>
-      <form class="formular" method="post" data-endpoint="{{ site.formular.endpoint }}" data-demo="{{ 1 if site.formular.demo or not site.formular.endpoint else 0 }}">
+      <form class="formular" method="post" data-endpoint="{{ site.formular.endpoint }}" data-email="{{ site.kontakt.email }}" data-demo="{{ 1 if site.formular.demo or not site.formular.endpoint else 0 }}">
         <fieldset class="formular__program">
           <legend>Program</legend>
           {% for p in data.programy %}<label class="volba"><input type="radio" name="program" value="{{ p.nazev }} Experience" {% if loop.first %}checked{% endif %}><span>{{ p.nazev }}</span></label>{% endfor %}
