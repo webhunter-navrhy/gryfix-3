@@ -18,6 +18,7 @@
           <a href="#okruhy" class="tl tl--sklo">Sestavit vlastní</a>
         </div>
       </div>
+      <div class="uvod__bok">
       <a href="#schopnosti" class="uvod__karta">
         <span class="uvod__karta-foto">{{ img(o.test.foto, '', sizes='8rem') }}</span>
         <span class="uvod__karta-text"><strong>Test situační pozornosti</strong> Kolik si zapamatujete za {{ o.test.sekundy }} sekund?</span>
@@ -26,6 +27,7 @@
       <ul class="uvod__stitky" role="list" aria-label="Co trénujeme">
         {% for s in o.schopnosti[:4] %}<li>{{ s }}</li>{% endfor %}
       </ul>
+      </div>
     </div>
   </div>
 </section>

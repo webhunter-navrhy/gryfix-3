@@ -134,14 +134,15 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 .uvod__h1 span + span { color: var(--zlata-sv); }
 .uvod__perex { margin-top: 1.5rem; max-width: 33rem; font-size: clamp(1.05rem, 1.3vw, 1.2rem); line-height: 1.55; color: rgba(255,255,255,.88); }
 .uvod__akce { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
-.uvod__karta { grid-column: 2; grid-row: 1; align-self: start; justify-self: end; display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: center; width: min(23rem, 100%); padding: .65rem 1.1rem .65rem .65rem; border-radius: 1.25rem; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2); text-decoration: none; transition: background-color .3s, transform .35s var(--ease); position: relative; }
+.uvod__bok { grid-column: 2; grid-row: 2; align-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: 1.75rem; }
+.uvod__karta { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: center; width: min(23rem, 100%); padding: .65rem 1.1rem .65rem .65rem; border-radius: 1.25rem; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2); text-decoration: none; transition: background-color .3s, transform .35s var(--ease); position: relative; }
 .uvod__karta:hover { background: rgba(255,255,255,.24); transform: translateY(-3px); }
 .uvod__karta-foto { display: block; border-radius: .85rem; overflow: hidden; aspect-ratio: 1; }
 .uvod__karta-foto img { width: 100%; height: 100%; object-fit: cover; }
 .uvod__karta-text { font-size: .9rem; line-height: 1.4; color: rgba(255,255,255,.85); padding-right: 1.25rem; }
 .uvod__karta-text strong { display: block; font: 500 1.08rem/1.2 var(--display); color: #fff; margin-bottom: .2rem; letter-spacing: -.01em; }
 .uvod__karta-sipka { position: absolute; top: .7rem; right: .9rem; font-size: 1.05rem; }
-.uvod__stitky { grid-column: 2; grid-row: 2; align-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: .5rem; }
+.uvod__stitky { display: flex; flex-direction: column; align-items: flex-end; gap: .5rem; }
 .uvod__stitky li { padding: .55rem 1rem; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.26); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); font-size: .9rem; white-space: nowrap; }
 .uvod__stitky li:nth-child(2) { margin-right: 2.5rem; }
 .uvod__stitky li:nth-child(3) { margin-right: .75rem; }
@@ -149,7 +150,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em;
 @media (max-width: 63.99rem) {
   .uvod__in { grid-template-columns: 1fr; grid-template-rows: auto; align-content: end; }
   .uvod__text { grid-row: 1; }
-  .uvod__karta { grid-column: 1; grid-row: 2; justify-self: start; }
+  .uvod__bok { grid-column: 1; grid-row: 2; align-items: flex-start; }
   .uvod__stitky { display: none; }
   .uvod__ram { min-height: max(38rem, calc(100svh - 2 * var(--ram))); }
 }
