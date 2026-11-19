@@ -107,6 +107,14 @@ class Obrazky:
         return Markup(f'<img src="{self.base}{nejv}" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}"{a}{c}{s} '
                       f'{nacitani} decoding="async">')
 
+    def na_sirku(self, nazev):
+        """Fotka na šířku (např. nahraná z administrace) – šablona podle toho upraví rozvržení."""
+        i = self._zpracuj(nazev)
+        if not i["raster"]:
+            return False
+        w, h = i["varianty"][-1][0], i["varianty"][-1][1]
+        return w > h * 1.1
+
     def img_url(self, nazev, w=1280):
         i = self._zpracuj(nazev)
         if not i["raster"]:
@@ -258,7 +266,7 @@ def main():
         return f"{int(h)}:{int(round((h % 1) * 60)):02d}"
     env.filters["nb"] = nb
     env.filters["cas"] = cas
-    env.globals.update(site=site, data=data, base=base, asset=asset, url=url, img=obr.img, img_url=obr.img_url,
+    env.globals.update(site=site, data=data, base=base, asset=asset, url=url, img=obr.img, img_url=obr.img_url, na_sirku=obr.na_sirku,
                        og_url=og_url, jsonld=jsonld(site, data), titulek="", popis="", cesta="", noindex=False)
     stranky = []
     for f in sorted(os.listdir(SRC)):

@@ -184,9 +184,10 @@
     {% endfor %}
 
     {% set ch = data.programy[2] %}
-    <div class="rocni">
+    {% set rocni_siroka = na_sirku(ch.rocni.foto.f) %}
+    <div class="rocni{% if rocni_siroka %} rocni--na-sirku{% endif %}">
       <div class="rocni__odznak odhal">
-        <figure class="rocni__lide">{{ img(ch.rocni.foto.f, ch.rocni.foto.alt, sizes='(min-width: 64rem) 22rem, 70vw') }}</figure>
+        <figure class="rocni__lide">{{ img(ch.rocni.foto.f, ch.rocni.foto.alt, sizes=('(min-width: 64rem) 38rem, 95vw' if rocni_siroka else '(min-width: 64rem) 22rem, 70vw')) }}</figure>
         <p class="rocni__stitek">12 × za rok</p>
       </div>
       <div class="rocni__text">
