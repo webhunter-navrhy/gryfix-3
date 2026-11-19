@@ -141,10 +141,16 @@ document.documentElement.classList.add('js');
 
   // ---------- vlastní program: okruhy ----------
   var okruhy = document.querySelectorAll('[data-okruh]');
+  var vlastni = document.querySelector('[data-okruh-vlastni]');
   var pocet = document.querySelector('[data-souhrn-pocet]');
   var slovo = document.querySelector('[data-souhrn-slovo]');
   var prenest = document.querySelector('[data-prenest]');
-  function vybrane() { return Array.prototype.filter.call(okruhy, function (c) { return c.checked; }).map(function (c) { return c.value; }); }
+  function vybrane() {
+    var v = Array.prototype.filter.call(okruhy, function (c) { return c.checked; }).map(function (c) { return c.value; });
+    var t = vlastni ? vlastni.value.trim() : '';
+    if (t) v.push(t);
+    return v;
+  }
   function tvar(n) { return n === 1 ? 'okruh vybrán' : (n >= 2 && n <= 4) ? 'okruhy vybrány' : 'okruhů vybráno'; }
   function souhrn() {
     var n = vybrane().length;
@@ -153,6 +159,10 @@ document.documentElement.classList.add('js');
     if (prenest) prenest.setAttribute('aria-disabled', n ? 'false' : 'true');
   }
   okruhy.forEach(function (c) { c.addEventListener('change', souhrn); });
+  if (vlastni) {
+    vlastni.addEventListener('input', function () { vlastni.closest('.dl').classList.toggle('je-vyplneno', !!vlastni.value.trim()); souhrn(); });
+    vlastni.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); if (prenest) prenest.click(); } });
+  }
   souhrn();
   if (prenest && form) {
     prenest.addEventListener('click', function (e) {

@@ -69,7 +69,7 @@
         <ul class="bublina__seznam" role="list">
           {% for s in o.schopnosti %}<li data-schopnost="{{ s }}" style="--i: {{ loop.index0 }}">{{ s|nb }}</li>{% endfor %}
         </ul>
-        <p class="bublina__zaver">…a proměňte je v&nbsp;cenné zkušenosti. <span aria-hidden="true">→</span></p>
+        <p class="bublina__zaver">…a proměňte je v&nbsp;cenné zkušenosti.</p>
         <figure class="bublina__lide">{{ img(data.fotky.hra.f, data.fotky.hra.alt, sizes='(min-width: 64rem) 34vw, 90vw') }}</figure>
       </div>
 
@@ -216,7 +216,7 @@
       {% for k in o.okruhy %}
       <li><label class="dl"><input type="checkbox" value="{{ k }}" data-okruh><span class="dl__text">{{ (k|nb)|replace("psychodiagnostika","psycho­diagnostika") }}</span><span class="dl__znak" aria-hidden="true"></span></label></li>
       {% endfor %}
-      <li class="dl dl--dalsi">a další podle domluvy</li>
+      <li><label class="dl dl--dalsi"><span class="dl__dalsi-popis">a další dle domluvy nebo Vaší preference</span><input type="text" class="dl__pole" name="okruh_vlastni" maxlength="140" autocomplete="off" placeholder="Dopište, co v&nbsp;nabídce chybí…" data-okruh-vlastni></label></li>
     </ul>
     <div class="souhrn" data-souhrn>
       <p><strong data-souhrn-pocet>0</strong> <span data-souhrn-slovo>okruhů vybráno</span></p>
